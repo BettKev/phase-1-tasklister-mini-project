@@ -1,7 +1,7 @@
 /* General Styling */
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f4f4f9;
+  background: linear-gradient(90deg, rgba(2,0,36,1) 11%, rgba(165,47,193,1) 47%, rgba(0,212,255,1) 82%);
   margin: 0;
   padding: 20px;
   display: flex;
@@ -10,9 +10,9 @@ body {
   height: 100vh;
 }
 
-/* Container */
+/* Styling for Container */
 .container {
-  background-color: white;
+  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,213,0.8225665266106442) 100%);
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
@@ -23,8 +23,9 @@ body {
 /* Heading */
 h1 {
   text-align: center;
-  color: #333;
+  color: #fff;
   margin-bottom: 20px;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
 }
 
 /* Form Styling */
@@ -40,7 +41,7 @@ h1 {
 .task-form select {
   padding: 10px;
   border-radius: 4px;
-  border: 1px solid #ccc;
+  border: 1px solid #000;
   font-size: 14px;
   flex: 1;
 }
@@ -50,7 +51,7 @@ h1 {
 }
 
 .task-form button {
-  background-color: #28a745;
+  background-color: #8d22be;
   color: white;
   border: none;
   padding: 10px 15px;
@@ -108,7 +109,7 @@ h1 {
 }
 
 .task-list button:hover {
-  background-color: #c82333;
+  background-color: #1b961f;
 }
 
 .task-list button:first-of-type {
@@ -125,7 +126,7 @@ h1 {
 }
 
 .controls button {
-  background-color: #007bff;
+  background-color: #6711e9;
   color: white;
   border: none;
   padding: 10px 20px;
