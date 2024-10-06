@@ -1,30 +1,32 @@
 document.addEventListener('DOMContentLoaded', function () {
-//STEP 1
-    // Add task with preventDefault to stop form submission
-    const taskForm = document.getElementById('task-form');//grabs the form
-    const taskInput = document.getElementById('task-input');//grabs task input field
-    const priorityInput = document.getElementById('priority-input');//grabs priority input field
-    const dueDateInput = document.getElementById('due-date-input');//grabs due date input field
-    taskForm.addEventListener('submit', (e) => {
-      e.preventDefault(); // prevents form from reloading the page
-  
-      const task = {
-        name: taskInput.value,
-        priority: priorityInput.value,
-        dueDate: dueDateInput.value
-      };//OBJECT HOLDING TASK KEY AND VALUE PROPERTIES
-      tasks.push(task);
-      renderTasks();//CALLS RENDER TASK FUNCTION
-  
-      // Clear input fields
-      taskInput.value = '';
-      dueDateInput.value = '';
-    });
+  let tasks = []; // initialize an empty array that will store user tasks (move this declaration to the top)
 
-//STEP 2
-  // This functions  grabs the task-list element and appends a list of tasks created by the user it utilizes a forEach loop to create the html list within an array of tasks
+  // STEP 1
+  // Add task with preventDefault to stop form submission
+  const taskForm = document.getElementById('task-form');//grabs the form
+  const taskInput = document.getElementById('task-input');//grabs task input field
+  const priorityInput = document.getElementById('priority-input');//grabs priority input field
+  const dueDateInput = document.getElementById('due-date-input');//grabs due date input field
+  
+  taskForm.addEventListener('submit', (e) => {
+    e.preventDefault(); // prevents form from reloading the page
+
+    const task = {
+      name: taskInput.value,
+      priority: priorityInput.value,
+      dueDate: dueDateInput.value
+    };//OBJECT HOLDING TASK KEY AND VALUE PROPERTIES
+    tasks.push(task);
+    renderTasks();//CALLS RENDER TASK FUNCTION
+
+    // Clear input fields
+    taskInput.value = '';
+    dueDateInput.value = '';
+  });
+
+  // STEP 2
+  // This function grabs the task-list element and appends a list of tasks created by the user
   const taskList = document.getElementById('task-list');//grabs unordered list
-  let tasks = [];//initialize an empty array that will store user tasks
   const renderTasks = () => {
     taskList.innerHTML = '';//clear content from task list (ul)
     tasks.forEach((task, index) => {
@@ -38,8 +40,6 @@ document.addEventListener('DOMContentLoaded', function () {
       taskList.appendChild(li);//append the child <li> to parent <ul>
     });
   };
-
-
 
   // Function to delete task
   window.deleteTask = (index) => {
@@ -69,9 +69,13 @@ document.addEventListener('DOMContentLoaded', function () {
         ? priorityOrder[a.priority] - priorityOrder[b.priority] 
         : priorityOrder[b.priority] - priorityOrder[a.priority];
     });
-    
+
     // Toggle sort order for the next click
-    sortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
+    if (sortOrder === 'asc') {
+      sortOrder = 'desc';
+    } else {
+      sortOrder = 'asc';
+    }
     renderTasks();
   });
 });
