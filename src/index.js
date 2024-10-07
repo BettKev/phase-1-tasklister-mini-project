@@ -1,29 +1,29 @@
 document.addEventListener('DOMContentLoaded', function () {
   //INITIALIZE VARIABLES TO HOLD THE DIFFERENT GRAB SEQUENCES
   let tasks = []; // Initialize an empty array that will store user tasks
-  const taskForm = document.getElementById('task-form'); // grabs the form
-  const taskInput = document.getElementById('task-input'); // grabs task input field
-  const priorityInput = document.getElementById('priority-input'); // grabs priority input field
-  const dueDateInput = document.getElementById('due-date-input'); // grabs due date input field
+  const form = document.getElementById('task-form'); // grabs the form
+  const inputTask = document.getElementById('task-input'); // grabs task input field
+  const inputPriority = document.getElementById('priority-input'); // grabs priority input field
+  const dateDue = document.getElementById('due-date-input'); // grabs due date input field
 
   // STEP 1
   // Add task with preventDefault to stop form submission
-  taskForm.addEventListener('submit', (event) => {
+  form.addEventListener('submit', (event) => {
     event.preventDefault(); // prevents form from reloading the page
     
     // OBJECT HOLDING TASK KEY AND VALUES ENTERED BY THE USER
     const task = {
-      name: taskInput.value,
-      priority: priorityInput.value,
-      dueDate: dueDateInput.value,
+      name: inputTask.value,
+      priority: inputPriority.value,
+      dueDate: dateDue.value,
     };
 
     tasks.push(task);//ADDS A NEW TASK OBJECT TO END OF THE TASKS ARRAY
     renderTasks(); // CALLS RENDER TASK FUNCTION
 
     // Clear input fields
-    taskInput.value = '';
-    dueDateInput.value = '';
+    inputTask.value = '';
+    dateDue.value = '';
   });
 
   // STEP 2
@@ -65,9 +65,9 @@ document.addEventListener('DOMContentLoaded', function () {
   // Function to edit task
   const editTask = (index) => {
     const task = tasks[index];
-    taskInput.value = task.name;
-    priorityInput.value = task.priority;
-    dueDateInput.value = task.dueDate;
+    inputTask.value = task.name;
+    inputPriority.value = task.priority;
+    dateDue.value = task.dueDate;
 
     // Remove the task from the list and let the user add the edited task
     tasks.splice(index, 1);
