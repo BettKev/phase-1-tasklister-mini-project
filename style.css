@@ -86,15 +86,15 @@ h1 {
 
 /* Priority Colors */
 .high {
-  border-left: 5px solid red;
+  border: 5px solid red;
 }
 
 .medium {
-  border-left: 5px solid yellow;
+  border: 5px solid yellow;
 }
 
 .low {
-  border-left: 5px solid green;
+  border: 5px solid green;
 }
 
 /* Task Buttons */
